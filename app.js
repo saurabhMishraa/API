@@ -1,12 +1,17 @@
 const express = require("express");
 const app = express();
-require("./db/conn");
+require('dotenv')
+const dotenv=require("./db/conn");
 const studentRouter = require("./router/student");
-const Student = require("./models/student");
-
+require("./models/student");
+require("dotenv").config();
 const port = process.env.PORT || 3000;
+// dotenv.config({path:"./config.env"})
+// dotenv.config({path:"./config.env"})
 
+//  It parses incoming JSON requests and puts the parsed data in req.body.
 app.use(express.json());
+
 app.use(studentRouter);
 
 app.listen(port, () => {
