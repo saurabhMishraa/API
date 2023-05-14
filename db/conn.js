@@ -1,9 +1,12 @@
 const mongoose = require("mongoose");
+require("dotenv").config()
+const MONGO_DB_URL=process.env.MONGODB_URL
 mongoose
-  .connect(`mongodb+srv://root:root@cluster0.e0ccq4d.mongodb.net/records?retryWrites=true&w=majority`)
+  .connect(`${MONGO_DB_URL}`)
   .then(() => {
     console.log("connection is succesful");
   })
   .catch((err) => {
     console.log("connection fails");
   });
+

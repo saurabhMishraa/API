@@ -6,7 +6,7 @@ const postUser = async(req,res)=>{
         const addUser = new Student(req.body)
         console.log("data",req.body);
         const inserUser = await addUser.save({});
-        res.status(201).send(inserUser)
+        res.status(201).send("Data Saved");
     }
     catch(err){
         res.status(409).send(err)
